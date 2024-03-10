@@ -1,0 +1,7 @@
+proje
+
+model oluşturulacak
+template dosyasında oluşturulan objeler görünecek
+
+
+obje oluşturma sayfası forms.py
