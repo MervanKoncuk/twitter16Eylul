@@ -66,7 +66,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-
+@login_required(login_url='login')
 def comment(request, postId):
     post = Post.objects.get(id = postId)
     post.view.add(request.user.profile)
@@ -97,7 +97,7 @@ def comment(request, postId):
     }
     return render(request, 'comment.html', context)
 
-
+@login_required(login_url='login')
 def explore(request):
     posts = Post.objects.all().order_by('?')
     if request.method == 'POST':
@@ -106,7 +106,7 @@ def explore(request):
         'posts':posts
     }
     return render(request, 'explore.html', context)
-
+@login_required(login_url='login')
 def search(request):
     profiles = ""
     posts = ""
@@ -131,7 +131,7 @@ def search(request):
     return render(request, 'search.html', context)
 
 
-
+@login_required(login_url='login')
 def notifications(request):
     bildirimler = Notificate.objects.filter(receiver = request.user.profile)
     if request.method == 'POST':
